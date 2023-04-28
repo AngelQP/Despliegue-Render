@@ -10,10 +10,10 @@ app.set('view engine', 'hbs');
 hbs.registerPartials(__dirname + '/views/partials')
 
 // Servir contenido estatico - Esto es un middleware
-app.use(express.static('public'));
+app.use(express.static('public/angular-app'));
 
 /* Esto ya no se ejecuta porque tiene la carpeta public */
-app.get('/', (req, res) => {
+/* app.get('/', (req, res) => {
   res.render('home', {
     nombre: 'Angel',
     titulo: 'Curso de Node'
@@ -32,11 +32,11 @@ app.get('/elements', (req, res) => {
     nombre: 'Angel',
     titulo: 'Curso de Node'
   })
-})
+}) */
 
 app.get('*', (req, res) => {
   // res.send('404 | Not found');
-  res.sendFile(__dirname + '/public/404.html')
+  res.sendFile(__dirname + '/public/angular-app/index.html')
 })
 
 app.listen(PORT, () => {
